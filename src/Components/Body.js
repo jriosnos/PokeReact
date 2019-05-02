@@ -7,14 +7,14 @@ render (){
             <div className="row">
                 <div className="col-md-8 pokeGif"><img id='picture' className="pokeImage"/></div>
                 <section className="col-md-4 statistics">
-                    <div className="pokeStats">Pokemon Name: <span id="pokeName"> </span></div>
-                    <div className="pokeStats">Pokemon Number: <span id="pokeNumber"></span></div> 
-                    <div className="pokeStats">Pokemon Type: <span id="pokeType"></span></div>
-                    <div className="pokeStats">Pokemon Weakness(es): <span id="pokeWeakness"></span></div> 
-                    <div className="pokeStats">Pokemon Weight: <span id="pokeWeight"> </span></div>
-                    <div className="pokeStats">Pokemon Height: <span id="pokeHeight"> </span></div> 
-                    <div className="pokeStats">Previous Evolution: <span id="pokePrevious"> </span></div>
-                    <div className="pokeStats">Next Evolution: <span id="pokeNext"></span></div>
+                    <div className="pokeStats">Pokemon Name: {this.props.name} </div>
+                    <div className="pokeStats">Pokemon Number: {this.props.number} </div> 
+                    <div className="pokeStats">Pokemon Type: {this.props.type} </div>
+                    <div className="pokeStats">Pokemon Weakness(es): {this.props.weakness} </div> 
+                    <div className="pokeStats">Pokemon Weight: {this.props.weight} </div>
+                    <div className="pokeStats">Pokemon Height: {this.props.height} </div> 
+                    <div className="pokeStats">Previous Evolution: {this.props.preEvo} </div>
+                    <div className="pokeStats">Next Evolution: {this.props.nextEvo} </div>
                 </section>               
             </div>
         </div>
