@@ -12,7 +12,7 @@ class Search extends Component{
         height: null,
         nextEvo: null,
         preEvo: null,
-
+        gif: null,
     }
  
     handleChange = (e) => {
@@ -25,44 +25,39 @@ class Search extends Component{
     
     handleSubmit = (e) => {
         e.preventDefault();
+        
         newIdentity = this.state.term
         
+        axios.get('https://api.giphy.com/v1/gifs/search?q={this.state.term}&api_key=8atTWI22Zvu4AINV5J8MOt44q6ABoUUs&limit=1&rating=g')
+        .then((response)=>{
+            setState({gif: response.data[0].images.original.url})
+        })
+
         axios.get('https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json')
         .then((responseData1)=>{
             responseData1.pokemon.forEach(eachStat => {
                 if(eachStat.name == newIdentity){
                     
-                    setState({
-                    name : eachStat.name,
-                    number : eachStat.num,
-                    type : eachStat.type,
-                    weakness : eachStat.weaknesses,
-                    weight : eachStat.weight,
-                    height : eachStat.height,
-                    
+                    setState({name : eachStat.name,
+                        number : eachStat.num,
+                        type : eachStat.type,
+                        weakness : eachStat.weaknesses,
+                        weight : eachStat.weight,
+                        height : eachStat.height,
+                        
+                    })
                     if(eachStat.prev_evolution)
-                    {
-                        setState({preEvo: eachStat.prev_evolution[0].name})
-                    }
-                    else {document.getElementById('pokePrevious').innerHTML = 'None'}
-                    
+                    {setState({preEvo: eachStat.prev_evolution[0].name})}
+                    else {setState({preEvo: "None"}) }
+                        
                     if(eachStat.next_evolution)
-                    {document.getElementById('pokeNext').innerHTML = eachStat.next_evolution[0].name}
-                    else {document.getElementById('pokeNext').innerHTML = 'None'}
+                    setState({nextEvo: eachStat.next_evolution[0].name}) }
+                    else {setState({nextEvo: 'None'}) }
+                    
+                    this.props.acceptChildState(this.state)
                 })
                 }
             })
-        })
-        .catch(()=>{
-            console.log('Failed to appropriately retrieve data')
-        })
-
-
-        axios.get('https://api.giphy.com/v1/gifs/search?q={this.state.term}&api_key=8atTWI22Zvu4AINV5J8MOt44q6ABoUUs&limit=1&rating=g')
-        .then(res=>{
-            console.log(res)
-        })
-    }
 
 render (){
     return(
