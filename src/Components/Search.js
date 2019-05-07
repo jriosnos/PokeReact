@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import Body from './Body'
 
 class Search extends Component{
     state = {
@@ -25,26 +26,18 @@ class Search extends Component{
     
     handleSubmit = (e) => {
         e.preventDefault();
-        
         var newIdentity = this.state.term
-        
-        axios.get('https://api.giphy.com/v1/gifs/search?q='+'{this.state.term}'+'&api_key=8atTWI22Zvu4AINV5J8MOt44q6ABoUUs&limit=1&rating=g')
-        .then((response)=>{
-            console.log(response)
-            var gifImage = response.data.data[0].images.fixed_height.url
-            this.setState({gif: gifImage})
-        })
 
         axios.get('https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json')
         .then((responseData1)=>{
             responseData1.data.pokemon.forEach(eachStat => {
                 if(eachStat.name === newIdentity){
-                    
+                    var trueWeakness = eachStat.weaknesses.join(", ")
                     this.setState({
                         name : eachStat.name,
                         number : eachStat.num,
                         type : eachStat.type,
-                        weakness : eachStat.weaknesses,
+                        weakness : trueWeakness,
                         weight : eachStat.weight,
                         height : eachStat.height,
                     })
@@ -56,7 +49,16 @@ class Search extends Component{
                     {this.setState({nextEvo: eachStat.next_evolution[0].name})}
                     else {this.setState({nextEvo: 'None'})}
                     console.log(this.state)
-                    // this.props.acceptChildState(this.state)
+                    
+
+    
+                    axios.get(`https://api.giphy.com/v1/gifs/search?q=${newIdentity}&api_key=8atTWI22Zvu4AINV5J8MOt44q6ABoUUs&limit=1&rating=g`)
+                    .then((response)=>{
+                        console.log(response)
+                        var gifImage = response.data.data[0].images.original.url
+                        this.setState({gif: gifImage})
+                    })
+                    console.log(this.state)
                 }
                 })
             })
@@ -76,6 +78,7 @@ render (){
                     </form>
                 </header>
             </div>
+            <Body content={this.state}/>
         </div>
     )
 }
