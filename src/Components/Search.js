@@ -30,7 +30,9 @@ class Search extends Component{
         
         axios.get('https://api.giphy.com/v1/gifs/search?q='+'{this.state.term}'+'&api_key=8atTWI22Zvu4AINV5J8MOt44q6ABoUUs&limit=1&rating=g')
         .then((response)=>{
-            this.setState({gif: response.data[0].images.original.url})
+            console.log(response)
+            var gifImage = response.data.data[0].images.fixed_height.url
+            this.setState({gif: gifImage})
         })
 
         axios.get('https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json')

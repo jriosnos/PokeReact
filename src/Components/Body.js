@@ -5,7 +5,7 @@ render (){
     return(
         <div className="container">
             <div className="row">
-                <div className="col-md-8 pokeGif">{this.props.gif}</div>
+                <div className="col-md-8 pokeGif"> {this.props.gif} </div>
                 <section className="col-md-4 statistics">
                     <div className="pokeStats">Pokemon Name: {this.props.name} </div>
                     <div className="pokeStats">Pokemon Number: {this.props.number} </div> 
