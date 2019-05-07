@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Search from './Components/Search'
 import Body from './Components/Body'
 import './app.css'

@@ -26,11 +26,11 @@ class Search extends Component{
     handleSubmit = (e) => {
         e.preventDefault();
         
-        newIdentity = this.state.term
+        var newIdentity = this.state.term
         
-        axios.get('https://api.giphy.com/v1/gifs/search?q={this.state.term}&api_key=8atTWI22Zvu4AINV5J8MOt44q6ABoUUs&limit=1&rating=g')
+        axios.get('https://api.giphy.com/v1/gifs/search?q='+'{this.state.term}'+'&api_key=8atTWI22Zvu4AINV5J8MOt44q6ABoUUs&limit=1&rating=g')
         .then((response)=>{
-            setState({gif: response.data[0].images.original.url})
+            this.setState({gif: response.data[0].images.original.url})
         })
 
         axios.get('https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json')
@@ -38,7 +38,7 @@ class Search extends Component{
             responseData1.pokemon.forEach(eachStat => {
                 if(eachStat.name == newIdentity){
                     
-                    setState({name : eachStat.name,
+                    this.setState({name : eachStat.name,
                         number : eachStat.num,
                         type : eachStat.type,
                         weakness : eachStat.weaknesses,
@@ -47,17 +47,18 @@ class Search extends Component{
                         
                     })
                     if(eachStat.prev_evolution)
-                    {setState({preEvo: eachStat.prev_evolution[0].name})}
-                    else {setState({preEvo: "None"}) }
+                    {this.setState({preEvo: eachStat.prev_evolution[0].name})}
+                    else {this.setState({preEvo: 'None'}) }
                         
                     if(eachStat.next_evolution)
-                    setState({nextEvo: eachStat.next_evolution[0].name}) }
-                    else {setState({nextEvo: 'None'}) }
+                    {this.setState({nextEvo: eachStat.next_evolution[0].name})}
+                    else {this.setState({nextEvo: 'None'})}
                     
                     this.props.acceptChildState(this.state)
-                })
                 }
+                })
             })
+        }
 
 render (){
     return(
@@ -78,4 +79,4 @@ render (){
 }
 }
 
-export default Search
+export default Search;
