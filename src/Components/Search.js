@@ -36,7 +36,7 @@ class Search extends Component{
         axios.get('https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json')
         .then((responseData1)=>{
             responseData1.pokemon.forEach(eachStat => {
-                if(eachStat.name == newIdentity){
+                if(eachStat.name === newIdentity){
                     
                     this.setState({name : eachStat.name,
                         number : eachStat.num,
@@ -66,7 +66,7 @@ render (){
             <div className="container">
                 <header className="row justify-content-center">
                     <h4 className="col-4 title">Pokéfinder</h4>
-                    <form /* onSubmit={this.handleSubmit} */ >
+                    <form onSubmit={this.handleSubmit} >
                         <section className="col-4">
                                 <input type="text" onChange={this.handleChange} placeholder="Original 151 Pokemon" name="pokemon" id='poke' className="formal-control searchPoke"/>
                                 <button type="submit" id='search' className="btn btn-primary pokeButton">Submit</button>

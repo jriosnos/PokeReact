@@ -24,6 +24,7 @@ acceptState = (states) => {
   this.setState({
     stats: states
   })
+  console.log(this.state)
 }
 
 render() {
