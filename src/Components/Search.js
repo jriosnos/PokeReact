@@ -35,16 +35,16 @@ class Search extends Component{
 
         axios.get('https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json')
         .then((responseData1)=>{
-            responseData1.pokemon.forEach(eachStat => {
+            responseData1.data.pokemon.forEach(eachStat => {
                 if(eachStat.name === newIdentity){
                     
-                    this.setState({name : eachStat.name,
+                    this.setState({
+                        name : eachStat.name,
                         number : eachStat.num,
                         type : eachStat.type,
                         weakness : eachStat.weaknesses,
                         weight : eachStat.weight,
                         height : eachStat.height,
-                        
                     })
                     if(eachStat.prev_evolution)
                     {this.setState({preEvo: eachStat.prev_evolution[0].name})}
@@ -53,8 +53,8 @@ class Search extends Component{
                     if(eachStat.next_evolution)
                     {this.setState({nextEvo: eachStat.next_evolution[0].name})}
                     else {this.setState({nextEvo: 'None'})}
-                    
-                    this.props.acceptChildState(this.state)
+                    console.log(this.state)
+                    // this.props.acceptChildState(this.state)
                 }
                 })
             })
@@ -66,7 +66,7 @@ render (){
             <div className="container">
                 <header className="row justify-content-center">
                     <h4 className="col-4 title">Pokéfinder</h4>
-                    <form onSubmit={this.handleSubmit} >
+                    <form onSubmit={this.handleSubmit}>
                         <section className="col-4">
                                 <input type="text" onChange={this.handleChange} placeholder="Original 151 Pokemon" name="pokemon" id='poke' className="formal-control searchPoke"/>
                                 <button type="submit" id='search' className="btn btn-primary pokeButton">Submit</button>
