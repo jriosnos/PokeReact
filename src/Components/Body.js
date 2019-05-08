@@ -6,8 +6,8 @@ render (){
     return(
         <div className="container">
             <div className="row">
-                <div className="col-md-8 pokeGif"> <img src={gif}/></div>
-                <section className="col-md-4 statistics">
+                <div className="col l8 pokeGif"> <img src={gif}/></div>
+                <section className="col l4 statistics">
                     <div className="pokeStats">Pokemon Name: {name} </div>
                     <div className="pokeStats">Pokemon Number: {number} </div> 
                     <div className="pokeStats">Pokemon Type: {type} </div>

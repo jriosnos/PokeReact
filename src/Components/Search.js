@@ -68,12 +68,12 @@ render (){
     return(
         <div className="pokeFinder">
             <div className="container">
-                <header className="row justify-content-center">
-                    <h4 className="col-4 title">Pokéfinder</h4>
+                <header className="row">
+                    <h4 className="title col l6 push-l2">Pokéfinder</h4>
                     <form onSubmit={this.handleSubmit}>
-                        <section className="col-4">
-                                <input type="text" onChange={this.handleChange} placeholder="Original 151 Pokemon" name="pokemon" id='poke' className="formal-control searchPoke"/>
-                                <button type="submit" id='search' className="btn btn-primary pokeButton">Submit</button>
+                        <section >
+                                <input type="text" onChange={this.handleChange} placeholder="Original 151 Pokemon" name="pokemon" id='poke' className="col l4 searchPoke"/>
+                                <button type="submit" id='search' className="col l2 waves-effect waves-light btn indigo pokeButton">Submit</button>
                         </section>
                     </form>
                 </header>
