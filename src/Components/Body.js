@@ -1,12 +1,19 @@
 import React, {Component} from 'react'
 
 class Body extends Component {
+    state = {
+        
+    }
+    
 render (){
-    const {name, number, type, weakness, weight, height, preEvo, nextEvo, gif} = this.props.content
+    const {name, number, type, weakness, weight, height, preEvo, nextEvo, gif, hint} = this.props.content
     return(
         <div className="container">
             <div className="row">
-                <div className="col l8 pokeGif"> <img src={gif}/></div>
+                <div className="col l8 pokeGif"> 
+                    <div className="hint"> {hint} </div> 
+                    <img className="pokeImage"src={gif}/> 
+                </div>
                 <section className="col l4 statistics">
                     <div className="pokeStats">Pokemon Name: {name} </div>
                     <div className="pokeStats">Pokemon Number: {number} </div> 

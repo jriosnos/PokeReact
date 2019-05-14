@@ -8,20 +8,21 @@ body{
     text-shadow: 2px 0px blue, -2px 0px blue, 0px 2px blue, 0px -2px blue;
     font-size: 35px;
     position: relative;
-    top: 20px;
     left: 130px;
 }
 
 .searchPoke{
     position: relative;
     top: 20px;
-    right: 85px;
+    right: 20px;
+    background-color: white;
+    color: white;
 }
 
 .pokeButton{
     position: relative;
-    top: 19px;
-    right: 80px;
+    top: 25px;
+    right: 90px;
 }
 
 .pokeStats{
@@ -29,9 +30,10 @@ body{
     background-color: grey;
     font-family: Arial;
     position: relative;
-    top: 180px;
-    left: 20px;
+    top: 110px;
+    left: 50px;
     color: white;
+    width: 350px;
 }
 .pokeStats:nth-of-type(odd){
     border: 2px solid blue;
@@ -50,25 +52,29 @@ body{
     border: 2px solid blue;
     background-color: grey;
     position: relative;
-    top: 40px;
     overflow: hidden;
     padding: 0;
-    height: 500px;
+    height: 475px;
+    display: block;
 }
 
 .pokeImage{
     position: absolute;
-    top: 50px;
-    left: 20px;
+    top: 35px;
+    left: 32px;
     display: table-cell;
     vertical-align: middle;
-    width: auto;
-    height: 400px;
-    /* top: 25%;
-    left: 25%; */
-    /* line-height: 15%; */
+    width: 90%;
+    height: 85%;
 }
 
+.hint{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 475px;
+    color: yellow;
+    text-shadow: 2px 0px blue, -2px 0px blue, 0px 2px blue, 0px -2px blue;
+}
 
 
 

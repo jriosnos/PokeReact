@@ -14,8 +14,9 @@ class Search extends Component{
         nextEvo: null,
         preEvo: null,
         gif: null,
+        hint: 'Please Submit one of the Original\n 151 Pokemon',
     }
- 
+
     handleChange = (e) => {
         var identity = e.target.value
         var newIdentity = identity.charAt(0).toUpperCase() + identity.slice(1)
@@ -59,6 +60,10 @@ class Search extends Component{
                         this.setState({gif: gifImage})
                     })
                     console.log(this.state)
+                    
+                    this.setState({
+                        hint: null,
+                    })
                 }
                 })
             })
@@ -71,10 +76,10 @@ render (){
                 <header className="row">
                     <h4 className="title col l6 push-l2">Pokéfinder</h4>
                     <form onSubmit={this.handleSubmit}>
-                        <section >
-                                <input type="text" onChange={this.handleChange} placeholder="Original 151 Pokemon" name="pokemon" id='poke' className="col l4 searchPoke"/>
-                                <button type="submit" id='search' className="col l2 waves-effect waves-light btn indigo pokeButton">Submit</button>
-                        </section>
+                        <div className="input-field ">
+                            <input type="text" onChange={this.handleChange} placeholder="Search Pokemon" type="text" className="col l3 searchPoke"/>
+                        </div>
+                        <button type="submit" id='search' className="col l2 waves-effect waves-light btn indigo pokeButton">Submit</button>
                     </form>
                 </header>
             </div>
