@@ -53,7 +53,7 @@ class Search extends Component{
                     
 
     
-                    axios.get(`https://api.giphy.com/v1/gifs/search?q=${newIdentity}&api_key=8atTWI22Zvu4AINV5J8MOt44q6ABoUUs&limit=1&rating=g`)
+                    axios.get(`https://api.giphy.com/v1/gifs/search?q=${newIdentity}&api_key=${process.env.REACT_APP_POKEMON_API_KEY}&limit=1&rating=g`)
                     .then((response)=>{
                         console.log(response)
                         var gifImage = response.data.data[0].images.original.url
