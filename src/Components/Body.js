@@ -12,7 +12,7 @@ render (){
             <div className="row">
                 <div className="col l8 pokeGif"> 
                     <div className="hint"> {hint} </div> 
-                    <img className="pokeImage"src={gif}/> 
+                    <img alt="Gif" className="pokeImage"src={gif}/> 
                 </div>
                 <section className="col l4 statistics">
                     <div className="pokeStats">Pokemon Name: {name} </div>

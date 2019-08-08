@@ -77,7 +77,7 @@ render (){
                     <h4 className="title col l4 push-l2 push-m4">Pokéfinder</h4>
                     <form onSubmit={this.handleSubmit}>
                         <div className="input-field col l3">
-                            <input type="text" onChange={this.handleChange} placeholder="Search Pokemon" type="text" className="col l3 searchPoke"/>
+                            <input type="text" onChange={this.handleChange} placeholder="Search Pokemon" className="col l3 searchPoke"/>
                         </div>
                         <button type="submit" id='search' className="col btn indigo pokeButton">Submit</button>
                     </form>
